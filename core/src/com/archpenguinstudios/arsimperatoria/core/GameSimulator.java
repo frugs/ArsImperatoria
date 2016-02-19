@@ -2,9 +2,9 @@ package com.archpenguinstudios.arsimperatoria.core;
 
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatComponent;
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatSimulator;
-import com.archpenguinstudios.arsimperatoria.core.entity.ComponentType;
-import com.archpenguinstudios.arsimperatoria.core.entity.GameEntity;
-import com.archpenguinstudios.arsimperatoria.core.entity.GameEntityModel;
+import com.archpenguinstudios.arsimperatoria.core.actor.ComponentType;
+import com.archpenguinstudios.arsimperatoria.core.actor.Actor;
+import com.archpenguinstudios.arsimperatoria.core.actor.ActorModel;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementComponent;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementSimulator;
 import com.google.common.base.Function;
@@ -15,32 +15,32 @@ import java.util.List;
 
 public class GameSimulator {
 
-    public static final Function<GameEntity, MovementComponent> MAP_MOVEMENT_COMPONENT =
-            new Function<GameEntity, MovementComponent>() {
+    public static final Function<Actor, MovementComponent> MAP_MOVEMENT_COMPONENT =
+            new Function<Actor, MovementComponent>() {
                 @Override
-                public MovementComponent apply(GameEntity gameEntity) {
-                    return gameEntity.getMovementComponent();
+                public MovementComponent apply(Actor actor) {
+                    return actor.getMovementComponent();
                 }
             };
 
-    public static final Function<GameEntity, CombatComponent> MAP_COMBAT_COMPONENT =
-            new Function<GameEntity, CombatComponent>() {
+    public static final Function<Actor, CombatComponent> MAP_COMBAT_COMPONENT =
+            new Function<Actor, CombatComponent>() {
                 @Override
-                public CombatComponent apply(GameEntity gameEntity) {
-                    return gameEntity.getCombatComponent();
+                public CombatComponent apply(Actor actor) {
+                    return actor.getCombatComponent();
                 }
             };
 
 
-    private final GameEntityModel gameEntityModel;
+    private final ActorModel actorModel;
     private final CombatSimulator combatSimulator;
     private final MovementSimulator movementSimulator;
 
-    public GameSimulator(GameEntityModel gameEntityModel,
+    public GameSimulator(ActorModel actorModel,
                          CombatSimulator combatSimulator,
                          MovementSimulator movementSimulator) {
 
-        this.gameEntityModel = gameEntityModel;
+        this.actorModel = actorModel;
         this.combatSimulator = combatSimulator;
         this.movementSimulator = movementSimulator;
     }
@@ -51,12 +51,12 @@ public class GameSimulator {
     }
 
     private Collection<MovementComponent> mobileEntityMovementComponents() {
-        List<GameEntity> mobileEntities = gameEntityModel.getGameEntitiesWithComponent(ComponentType.MOVEMENT);
+        List<Actor> mobileEntities = actorModel.getGameEntitiesWithComponent(ComponentType.MOVEMENT);
         return Collections2.transform(mobileEntities, MAP_MOVEMENT_COMPONENT);
     }
 
     private Collection<CombatComponent> combatantCombatComponents() {
-        List<GameEntity> combatants = gameEntityModel.getGameEntitiesWithComponent(ComponentType.MOVEMENT);
+        List<Actor> combatants = actorModel.getGameEntitiesWithComponent(ComponentType.MOVEMENT);
         return Collections2.transform(combatants, MAP_COMBAT_COMPONENT);
     }
 }

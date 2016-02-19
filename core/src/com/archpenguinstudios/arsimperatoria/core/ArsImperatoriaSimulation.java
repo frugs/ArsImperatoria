@@ -1,9 +1,9 @@
 package com.archpenguinstudios.arsimperatoria.core;
 
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatSimulator;
-import com.archpenguinstudios.arsimperatoria.core.entity.GameEntityModel;
+import com.archpenguinstudios.arsimperatoria.core.actor.ActorModel;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementSimulator;
-import com.archpenguinstudios.arsimperatoria.core.world.GameWorldModel;
+import com.archpenguinstudios.arsimperatoria.core.world.WorldModel;
 
 public class ArsImperatoriaSimulation {
 
@@ -16,15 +16,15 @@ public class ArsImperatoriaSimulation {
     }
 
     public static ArsImperatoriaSimulation createArsImperatoriaSimulation() {
-        GameWorldModel gameWorldModel = new GameWorldModel();
+        WorldModel worldModel = new WorldModel();
 
-        GameEntityModel gameEntityModel = new GameEntityModel();
-        CombatSimulator combatSimulator = new CombatSimulator(gameWorldModel);
-        MovementSimulator movementSimulator = new MovementSimulator(gameWorldModel);
+        ActorModel actorModel = new ActorModel();
+        CombatSimulator combatSimulator = new CombatSimulator(worldModel);
+        MovementSimulator movementSimulator = new MovementSimulator(worldModel);
 
-        GameSimulator gameSimulator = new GameSimulator(gameEntityModel, combatSimulator, movementSimulator);
+        GameSimulator gameSimulator = new GameSimulator(actorModel, combatSimulator, movementSimulator);
 
-        GameController gameController = new GameController(gameEntityModel);
+        GameController gameController = new GameController(actorModel);
 
         return new ArsImperatoriaSimulation(gameSimulator, gameController);
     }

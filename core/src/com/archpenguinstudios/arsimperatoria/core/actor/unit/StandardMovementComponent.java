@@ -1,26 +1,26 @@
-package com.archpenguinstudios.arsimperatoria.core.entity.unit;
+package com.archpenguinstudios.arsimperatoria.core.actor.unit;
 
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementActivity;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementComponent;
 import com.archpenguinstudios.arsimperatoria.core.util.VectorMath;
-import com.archpenguinstudios.arsimperatoria.core.world.GameWorldEntity;
+import com.archpenguinstudios.arsimperatoria.core.world.WorldEntity;
 import com.badlogic.gdx.math.Vector2;
 
 class StandardMovementComponent implements MovementComponent {
 
-    private final GameWorldEntity owner;
+    private final WorldEntity owner;
 
     private MovementActivity movementActivity = MovementActivity.NONE;
     private Vector2 destinationLocation = new Vector2();
     private float movementSpeed;
 
-    public StandardMovementComponent(GameWorldEntity owner, float movementSpeed) {
+    public StandardMovementComponent(WorldEntity owner, float movementSpeed) {
         this.owner = owner;
         this.movementSpeed = movementSpeed;
     }
 
     @Override
-    public GameWorldEntity getOwner() {
+    public WorldEntity getOwner() {
         return owner;
     }
 

@@ -1,10 +1,10 @@
 package com.archpenguinstudios.arsimperatoria.core.combat;
 
-import com.archpenguinstudios.arsimperatoria.core.world.GameWorldEntity;
+import com.archpenguinstudios.arsimperatoria.core.world.WorldEntity;
 
 public interface CombatComponent {
 
-    GameWorldEntity getOwner();
+    WorldEntity getOwner();
 
     CombatActivity getCombatActivity();
 

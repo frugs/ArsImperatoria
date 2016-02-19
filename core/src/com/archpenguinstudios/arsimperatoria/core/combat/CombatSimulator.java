@@ -1,13 +1,13 @@
 package com.archpenguinstudios.arsimperatoria.core.combat;
 
-import com.archpenguinstudios.arsimperatoria.core.world.GameWorldModel;
+import com.archpenguinstudios.arsimperatoria.core.world.WorldModel;
 
 public class CombatSimulator {
 
-    private final GameWorldModel gameWorldModel;
+    private final WorldModel worldModel;
 
-    public CombatSimulator(GameWorldModel gameWorldModel) {
-        this.gameWorldModel = gameWorldModel;
+    public CombatSimulator(WorldModel worldModel) {
+        this.worldModel = worldModel;
     }
 
     public void simulateCombat(Iterable<CombatComponent> combatComponents) {
@@ -38,6 +38,6 @@ public class CombatSimulator {
     // is in a state to perform his desired combat action, and that the target is within range.
     private boolean isValidCombatScenario(CombatComponent attacker, CombatComponent target) {
         return attacker.canPerformCombatAction()
-                && attacker.attackRange() > gameWorldModel.euclideanDistance(attacker.getOwner(), target.getOwner() );
+                && attacker.attackRange() > worldModel.euclideanDistance(attacker.getOwner(), target.getOwner() );
     }
 }

@@ -1,7 +1,7 @@
 package com.archpenguinstudios.arsimperatoria.core.combat;
 
-import com.archpenguinstudios.arsimperatoria.core.world.GameWorldEntity;
-import com.archpenguinstudios.arsimperatoria.core.world.PlaceholderGameWorldEntities;
+import com.archpenguinstudios.arsimperatoria.core.world.WorldEntity;
+import com.archpenguinstudios.arsimperatoria.core.world.PlaceholderWorldEntities;
 
 public class PlaceholderCombatComponents {
 
@@ -15,8 +15,8 @@ public class PlaceholderCombatComponents {
 
     private static class NullCombatComponent implements CombatComponent {
         @Override
-        public GameWorldEntity getOwner() {
-            return PlaceholderGameWorldEntities.nullGameWorldEntity();
+        public WorldEntity getOwner() {
+            return PlaceholderWorldEntities.nullWorldEntity();
         }
 
         @Override
