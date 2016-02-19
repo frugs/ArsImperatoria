@@ -1,9 +1,9 @@
-package com.archpenguinstudios.arsimperatoria.core.game.unit;
+package com.archpenguinstudios.arsimperatoria.core.entity.unit;
 
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatActivity;
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatComponent;
 import com.archpenguinstudios.arsimperatoria.core.combat.PlaceholderCombatComponents;
-import com.archpenguinstudios.arsimperatoria.core.game.GameEntity;
+import com.archpenguinstudios.arsimperatoria.core.entity.GameEntity;
 import com.archpenguinstudios.arsimperatoria.core.world.GameWorldEntity;
 
 class StandardCombatComponent implements CombatComponent {

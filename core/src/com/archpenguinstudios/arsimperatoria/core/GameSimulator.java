@@ -1,7 +1,10 @@
-package com.archpenguinstudios.arsimperatoria.core.game;
+package com.archpenguinstudios.arsimperatoria.core;
 
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatComponent;
 import com.archpenguinstudios.arsimperatoria.core.combat.CombatSimulator;
+import com.archpenguinstudios.arsimperatoria.core.entity.ComponentType;
+import com.archpenguinstudios.arsimperatoria.core.entity.GameEntity;
+import com.archpenguinstudios.arsimperatoria.core.entity.GameEntityModel;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementComponent;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementSimulator;
 import com.google.common.base.Function;

@@ -1,4 +1,4 @@
-package com.archpenguinstudios.arsimperatoria.core.game.unit;
+package com.archpenguinstudios.arsimperatoria.core.entity.unit;
 
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementActivity;
 import com.archpenguinstudios.arsimperatoria.core.movement.MovementComponent;
